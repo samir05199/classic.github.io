@@ -1,0 +1,125 @@
+A JavaScript for  HTML templates to make them feel “alive” (smooth scroll, scroll reveal, and a simple cursor follower).
+
+How to include the script
+In your HTML, just before </body>:
+
+xml
+<script src="script.js"></script>
+</body>
+</html>
+Browsers run JavaScript from <script> tags, either inline or via external files like script.js linked with src.​
+
+script.js: useful interactions
+js
+// Run after DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href');
+      const targetEl = document.querySelector(targetId);
+      if (!targetEl) return;
+
+      e.preventDefault();
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // 2) Scroll-reveal animation for sections
+  const revealEls = document.querySelectorAll('.scroll-reveal');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // reveal once
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // 3) Simple cursor follower
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor-follower';
+  document.body.appendChild(cursor);
+
+  let x = window.innerWidth / 2;
+  let y = window.innerHeight / 2;
+  let targetX = x;
+  let targetY = y;
+
+  document.addEventListener('pointermove', e => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  });
+
+  function animateCursor() {
+    const speed = 0.16; // lower = smoother
+    x += (targetX - x) * speed;
+    y += (targetY - y) * speed;
+    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+});
+This uses document.querySelectorAll, addEventListener, and IntersectionObserver to build dynamic behavior without extra libraries, a pattern often recommended for simple interactive content.​
+
+CSS required for effects
+Add this to your CSS (or <style> in <head>):
+
+css
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* Scroll reveal base state */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+/* When revealed */
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cursor follower */
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;  /* center on pointer */
+  margin-left: -14px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(0,123,255,0.1));
+  box-shadow: 0 0 20px rgba(0,123,255,0.5);
+  mix-blend-mode: screen;
+  z-index: 9999;
+  transition: transform 0.1s linear;
+}
+Intersection-based reveal plus cursor-follow effects are common modern UI patterns and work well across browsers using just CSS and vanilla JavaScript.​
+
+How to use in your HTML
+Mark any section you want to animate on scroll:
+
+xml
+<section id="about" class="scroll-reveal">
+  ...
+</section>
+
+<section id="services" class="scroll-reveal">
+  ...
+</section>
+Your existing nav links like <a href="#about">About</a> will automatically get smooth scrolling because the script targets anchors whose href starts with #

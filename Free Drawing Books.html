@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Drawing Books - Download & Learn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            line-height: 1.8;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .intro-section p {
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 1em;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .book-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 80px;
+            font-weight: 300;
+        }
+
+        .book-info {
+            padding: 20px;
+        }
+
+        .book-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .book-info p {
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .download-btn:hover {
+            background: #764ba2;
+        }
+
+        .features-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .features-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            padding: 20px;
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .feature-item h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+<script type="text/javascript" nonce="b0b7026b7a6e4f2a9bb28489311" src="//local.adguard.org?ts=1765963303356&amp;type=content-script&amp;dmn=ppl-ai-code-interpreter-files.s3.amazonaws.com&amp;url=https%3A%2F%2Fppl-ai-code-interpreter-files.s3.amazonaws.com%2Fweb%2Fdirect-files%2F83c3f3ae4ac3e271f5e26841dafd1b29%2F266c8415-c6dd-4854-8db2-eecc4eebf3a3%2Fcanvas-app%2Findex.html%3Fresponse-content-disposition%3Dattachment%253B%2520filename%253DFree%2520Drawing%2520Books.html%253B%2520filename%252A%253DUTF-8%2527%2527Free%252520Drawing%252520Books.html%26AWSAccessKeyId%3DASIA2F3EMEYE5EE5GCYO%26Signature%3Dzu%252B44FUdgL0ufYpimNlK6IzzW9o%253D%26x-amz-security-token%3DIQoJb3JpZ2luX2VjELL%252F%252F%252F%252F%252F%252F%252F%252F%252F%252FwEaCXVzLWVhc3QtMSJHMEUCIALbWSugSLz0D9%252Bq7WCtFGIIdivEWIbD81ZYJ9xIytOsAiEAh0ggOtt3NwA70OihZ6VktO6QlBaa%252F6IfydoMDqEiVu0q8wQIexABGgw2OTk3NTMzMDk3MDUiDCPlPyyXimHodSXxYyrQBKfgtyExTGg5%252Fvgd9l1fjUXcsjCa3Bz1a1UdogDl6FCF0ZpQoNQkM6pvnWkzQHAI%252FolL5kFfmf%252B2ah0kA%252BsA30h1KQMs1ivZ4oFnb0oIPoTf%252BNnu6GeqhxsTjfaT8zEbtL3oXItZHg8fGQfgZ9i6ei0OC%252FLZW%252FUKdYfTJ2JEt%252F%252Fg%252BOODMa7cYGRmBSevvt%252F6AWZxR%252BbCvBFPOOxyJCe%252Be14PKPvT%252Fy%252BWGTaBE47Wr4TA3OXKZv4ZdifQAirtEGXwcQSM6UyRmxvO1C9GTaxo5cTOIsQpWzUGqUZGL%252BNKhdafYwEpFYDRDgThL1pbnBgPR6aKsLa5WTUU0xNhAVOqhhPb4ApTKFXx8%252FG83rcsaAVJMh%252Bxcv5w9RsVKjNQ%252BGY0HmLLZlSx0ckzqTK5W1lfaaO3yILKzX3Zn6qfBxsro63OC6JzJ%252BheXHuikKqiPG6l7941Rvw%252F9daGSn41%252Bp288O%252BVxVwxlqWdSgCmHJfi0FjjRnurh8EyzFvGbrbFNTCOshEMg2Zsb7WSr6L%252F7Dk2%252BWsaOMEnuzQQTOHenl59OcIx2cFISTxA5j4GsEtNKd%252Bz006dOLwWOsJl4Mg5T5zm%252BgARvh1EgH3Ry6YELUXACUMxTSOzDup9BvvaNvPZJzdQDkpKtlURUltx8Rdl8gXa8pZkYOqJMwEgnQ%252B5wB0xnIomG751Z9FXbMGyXh38AtIUyK38Aumo8XqcEm2goxrYXmr%252FiSl5iH696HrRafxwF1aRw%252FugjLpIRriH2tQO9T2ZXKKEC1h1lQiVegu25h99r7ww2%252ByJygY6mAEF4jWn9hpLkwhph8YK%252FZ3ci1kALGlzQbCvWWm9fnv41f%252FzkVd%252BJEanB1IjbOsQ7IkLoQUsS3ptsV4JefMtuRKb6PRgZxlNsalqTYyP1SJQGrbrykKnQ5rWEnr47pZ2IRGMjfwvIct3UVdXH2YKc%252BVXmZIOTSBSSlDnmi%252Fxlf6p7Hoo%252BubTIghFmR84P5PRmv9D3ci711BesA%253D%253D%26Expires%3D1765966360&amp;app=comet.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="b0b7026b7a6e4f2a9bb28489311" src="//local.adguard.org?ts=1765963303356&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>📚 Free Drawing Books Library</h1>
+        <p>Learn to Draw - Download Classic & Modern Drawing Tutorials for Free</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <h2>Welcome to the Free Drawing Books Collection</h2>
+            <p>
+                Discover a curated selection of free drawing books available for download. Whether you're a beginner 
+                looking to master basic sketching techniques or an experienced artist seeking to refine your skills, 
+                our library offers something for everyone.
+            </p>
+            <p>
+                Our collection includes classic drawing tutorials, anatomy guides, pen and ink techniques, watercolor 
+                methods, and digital art instruction. All books are available in PDF format and can be downloaded instantly 
+                to your device for offline learning.
+            </p>
+            <p>
+                These resources cover fundamental drawing principles, figure drawing, landscape illustration, character 
+                design, and much more. Start your artistic journey today with our comprehensive selection of free educational 
+                materials.
+            </p>
+        </section>
+
+        <!-- Books Grid -->
+        <h2 style="text-align: center; color: #667eea; margin-bottom: 30px; font-size: 2em;">Featured Drawing Books</h2>
+        
+        <div class="books-grid">
+            <!-- Book 1 -->
+            <div class="book-card">
+                <div class="book-image">✏️</div>
+                <div class="book-info">
+                    <h3>Complete Book of Drawing</h3>
+                    <p>
+                        Master essential skills for every artist including object drawing, still-life composition, 
+                        and natural world illustration techniques by Barrington Barber.
+                    </p>
+                    <a href="https://archive.org/details/20240423_the-complete-book-of-drawing_2124" target="_blank" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card">
+                <div class="book-image">🎨</div>
+                <div class="book-info">
+                    <h3>Drawing the Head & Hands</h3>
+                    <p>
+                        Andrew Loomis' masterpiece on figure and portrait drawing. Learn essential anatomy and 
+                        proportions for drawing realistic heads and hands.
+                    </p>
+                    <a href="https://archive.org/details/andrew-loomis-drawing-the-head-hands" target="_blank" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card">
+                <div class="book-image">🖊️</div>
+                <div class="book-info">
+                    <h3>Pen and Ink Drawing: A Simple Guide</h3>
+                    <p>
+                        Practical guide by Alphonso Dunn on pen and ink techniques with stunning historical 
+                        illustrations. Perfect for line work and detailed rendering.
+                    </p>
+                    <a href="https://archive.org/details/pen-and-ink-drawing-a-simple-guide-by-alphonso-dunn_202408" target="_blank" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card">
+                <div class="book-image">🖌️</div>
+                <div class="book-info">
+                    <h3>Perspective Drawing</h3>
+                    <p>
+                        Master perspective techniques by Ernest Norling. Essential guide for creating depth and 
+                        realistic spatial relationships in your artwork.
+                    </p>
+                    <a href="https://archive.org/details/perspective-drawing-by-ernest-norling-walter-foster-1969" target="_blank" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card">
+                <div class="book-image">📖</div>
+                <div class="book-info">
+                    <h3>Drawing for Beginners</h3>
+                    <p>
+                        Classic tutorial by Dorothy Furniss. Perfect starting point for complete beginners wanting 
+                        to learn fundamental drawing principles step by step.
+                    </p>
+                    <a href="https://archive.org/details/drawingforbeginn00furn" target="_blank" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="book-card">
+                <div class="book-image">✍️</div>
+                <div class="book-info">
+                    <h3>The Elements of Drawing</h3>
+                    <p>
+                        John Ruskin's timeless masterpiece on drawing principles. Comprehensive instruction on 
+                        observation, technique, and artistic development.
+                    </p>
+                    <a href="https://archive.org/details/in.ernet.dli.2015.264111" target="_blank" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>Why Download These Books?</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>✓ 100% Free</h3>
+                    <p>All books are free to download with no hidden costs or subscriptions required.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✓ Offline Access</h3>
+                    <p>Download once and access your books anytime, anywhere, without internet connection.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✓ High Quality</h3>
+                    <p>Clear, detailed illustrations and professional instruction from master artists.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✓ For All Levels</h3>
+                    <p>Content suitable for beginners to advanced artists seeking to improve their craft.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✓ Classic & Modern</h3>
+                    <p>Mix of time-tested classics and contemporary drawing techniques and approaches.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✓ Multiple Subjects</h3>
+                    <p>Covers sketching, anatomy, pen work, landscapes, figures, and digital drawing.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Free Drawing Books Library. All resources provided for educational purposes. 
+           <br> Download, learn, and create amazing artwork!</p>
+    </footer>
+
+    <script>
+        // Add interactivity to download buttons
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('This is a demo. In production, this would download the PDF file.');
+            });
+        });
+
+        // Smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>
